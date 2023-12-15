@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Multinomial logistic regression &#8212; ML book</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -80,6 +81,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -133,9 +143,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../README.html">
+  
   
   
   
@@ -145,8 +157,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ML book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ML book - Home"/>`);</script>
   
   
 </a></div>
@@ -223,6 +235,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../gradient_boosting/generic_gb.html">Generic gradient boosting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gradient_boosting/adaboost.html">AdaBoost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gradient_boosting/xgboost.html">XGBoost</a></li>
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="../gradient_boosting/catboost.html">CatBoost</a></li>
 </ul>
 </li>
@@ -330,10 +347,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../math/optimization/newton.html">Newton’s method</a></li>
 </ul>
 </li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">HW</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../not_mnist_student.html">HW notMNIST</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -446,20 +459,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -605,7 +620,7 @@ k = 1, \ldots, K.
 <p>Visualize some random samples:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/bbdf73c313fe4f0479e5a5cd9b47ad88f13969879e482af563b5904bcbf6f71b.svg" src="../_images/bbdf73c313fe4f0479e5a5cd9b47ad88f13969879e482af563b5904bcbf6f71b.svg" /></div>
+<img alt="../_images/f1b901cf00caa0f21e9cd420fcfcdbf7952965b881d3f46c659c47fc14cc43e7.svg" src="../_images/f1b901cf00caa0f21e9cd420fcfcdbf7952965b881d3f46c659c47fc14cc43e7.svg" /></div>
 </div>
 </section>
 <section id="splitting-into-train-and-test">
@@ -650,11 +665,11 @@ k = 1, \ldots, K.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 36.3 s, sys: 657 ms, total: 37 s
-Wall time: 20.7 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 39s, sys: 6.8 s, total: 1min 46s
+Wall time: 11.7 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
@@ -690,14 +705,14 @@ Please also refer to the documentation for alternative solver options:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.65095773e-04, 1.43385260e-07, 1.14780168e-05, 2.99636017e-01,
-        5.98926346e-07, 6.39615667e-01, 1.80372814e-07, 1.76480310e-07,
-        5.86493420e-02, 1.92130044e-03],
-       [1.21475181e-04, 1.49673625e-06, 1.08891109e-03, 1.24093043e-05,
+        5.98926347e-07, 6.39615668e-01, 1.80372814e-07, 1.76480310e-07,
+        5.86493419e-02, 1.92130044e-03],
+       [1.21475182e-04, 1.49673625e-06, 1.08891110e-03, 1.24093043e-05,
         9.14920772e-01, 1.95035318e-04, 1.16798504e-04, 1.85831413e-04,
-        1.03925873e-02, 7.29646828e-02],
-       [9.63965076e-09, 9.52335705e-09, 1.80277138e-07, 4.04423620e-09,
-        9.99908083e-01, 2.32334829e-06, 7.00253101e-06, 8.06028699e-06,
-        6.62953819e-06, 6.76977960e-05]])
+        1.03925874e-02, 7.29646830e-02],
+       [9.63965081e-09, 9.52335710e-09, 1.80277139e-07, 4.04423620e-09,
+        9.99908083e-01, 2.32334830e-06, 7.00253106e-06, 8.06028704e-06,
+        6.62953821e-06, 6.76977962e-05]])
 </pre></div>
 </div>
 </div>
@@ -727,7 +742,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dbaf58a61ab38c7033eb231fbdd445b738123bbad77ee90e8fe1b12f7935675d.svg" src="../_images/dbaf58a61ab38c7033eb231fbdd445b738123bbad77ee90e8fe1b12f7935675d.svg" /></div>
+<img alt="../_images/85bf2d240dcc28b4f8c1f8bc5eda4515725b9d54f350cca09e8bd8994f7629bc.svg" src="../_images/85bf2d240dcc28b4f8c1f8bc5eda4515725b9d54f350cca09e8bd8994f7629bc.svg" /></div>
 </div>
 <p>Plot some samples with predictions and ground truths:</p>
 <div class="cell docutils container">
@@ -737,7 +752,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f144d8593aa1669eeefaa229e866b9970e01e8718dcaf110d835a3ccb2c72027.svg" src="../_images/f144d8593aa1669eeefaa229e866b9970e01e8718dcaf110d835a3ccb2c72027.svg" /></div>
+<img alt="../_images/33c6329d25bbf6e805a3f09abf7ac564cc42533f13a2ed832c7939ec5866c3a4.svg" src="../_images/33c6329d25bbf6e805a3f09abf7ac564cc42533f13a2ed832c7939ec5866c3a4.svg" /></div>
 </div>
 </section>
 </section>
@@ -768,11 +783,10 @@ Please also refer to the documentation for alternative solver options:
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="log_reg.html"
@@ -792,10 +806,7 @@ Please also refer to the documentation for alternative solver options:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -839,6 +850,7 @@ By KBTU
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -865,8 +877,8 @@ By KBTU
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
